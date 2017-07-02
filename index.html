@@ -4,6 +4,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	
+	
+	
+	
+	
     <!-- <link rel="stylesheet" href="styles/styles.min.css" type="text/css"> -->
     <link rel="stylesheet" href="styles/styles.css" type="text/css">
 	<title>IT-Hunter – поиск программистов для вашей компании</title>
@@ -95,11 +101,11 @@
                             </div> -->
                         </div>
                         <div class="clearfix transactions">
-                            <div class="left">
+                            <div class="left" style="min-width:200px!important; border: solid 0px; display:block; float:left">
                                 <div class="name" ng-bind="proger.name"></div>
                                 <div class="location" ng-bind="proger.location"></div>
                             </div>
-                            <div class="right">
+                            <div class="right" style="min-width:250px!important; border: solid 0px; display:block; float:left">
                                 <div class="descr">
                                 <a href="{{proger.github}}" target="_blank" ng-show="{{!!proger.github}}">
                                     <span class="socicon-github"></span>
@@ -129,7 +135,7 @@
                                     <span class="socicon-vkontakte"></span>
                                 </a>
                                 </div>
-                                <div class="email">{{proger.emails}}</div>
+                                <div class="email" style="min-width:250px!important; border: solid 0px; display:block;">{{proger.emails}}</div>
                             </div>
                         </div>
                     </div>
@@ -156,7 +162,7 @@
     </section>
     <footer>
         <div class="container clearfix">
-            <span class="strike">&copy; Все права защищены</span>. Работа выполнена в рамках курса «Интернет-предпринимательство» в мае 2017 года.
+            <span class="strike">&copy; Все права защищены</span>. Angelhack, 1-2 июль 2017 года.
         </div>
     </footer>
 </body>

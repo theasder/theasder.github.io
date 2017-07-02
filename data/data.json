@@ -51,23 +51,6 @@
         "google": null
     },
     {
-        "name": "Stan",
-        "github": "https://github.com/stanislavfeldman",
-        "linkedin": "https://www.linkedin.com/in/stanislavfeldman",
-        "tags": null,
-        "stackoverflow": "https://ru.stackoverflow.com/users/686/stan",
-        "vk": null,
-        "languages": "{}",
-        "emails": "none@example.com",
-        "site": "",
-        "location": "Malaysia",
-        "telegram": null,
-        "moikrug": null,
-        "tw": "https://twitter.com/stasfeldman",
-        "fb": null,
-        "google": null
-    },
-    {
         "name": "Nailgun",
         "github": "https://github.com/nai1gun",
         "linkedin": "http://ru.linkedin.com/in/korvyakov",
