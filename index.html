@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <link rel="stylesheet" href="styles/styles.min.css" type="text/css"> -->
+    <link rel="stylesheet" href="styles/styles.css" type="text/css">
+	<title>IT-Hunter – поиск программистов для вашей компании</title>
+    <!-- old browser support -->
+    <script src="js/vendors/es5-shim-sham.min.js" type="text/javascript"></script>
+    <script src="js/vendors/angular.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://d1azc1qln24ryf.cloudfront.net/114779/Socicon/style-cf.css?libdco">
+    <!-- charts for app -->
+<!--     <script src="js/node_modules/chart.js/dist/Chart.min.js"></script>
+    <script src="js/node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/transactions.factory.js"></script>
+    <script src="js/controllers/menu.ctrl.js"></script>
+    <script src="js/controllers/main.ctrl.js"></script>
+    <script src="js/controllers/graphs.ctrl.js"></script> -->
+
+    <!-- all app in one file for perfomance matters-->
+    <script src="js/app-in-one-file/app.js"></script>
+</head>
+<body ng-app="app" ng-controller="main">
+    <header ng-controller="MenuCtrl">
+        <div class="container clearfix">
+            <div class="logo">
+                <a href="#/">IT-Hunter</a>
+            </div>
+            <a href="#/" id="touch-menu" ng-click="toggleMenu()">&#9776;</a>
+            <nav>
+                <ul class="nav clearfix" ng-class="{true: 'menu-toggle'}[custom]">
+                    <li><a href="#/" class="active">Главная</a></li>
+                    <li><a href="#/">Вошли как guest</a></li>
+                    <li><a href="#/">Выйти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="container clearfix">
+            <div id="content">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <input type="text" id="city" name="city" ng-model="city" placeholder="Укажите город и/или страну" autofocus> <!--ng-model="city"-->
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" id="lang" name="lang" ng-model="language"
+                                   placeholder="Какой основной язык программирования?">
+                                   <!--ng-model="lang" ng-keypress="search($event)"-->
+
+                        </div>
+<!--                         <div class="col-md-0">
+                            <button type="submit" class="btn" id="add-transaction"
+                                    ng-click="loadPage(0);">Готово!</button>
+                        </div> -->
+                    </div>
+                </form>
+
+<!--                 <div class="row select-style" id="timeSelectMobile">
+                    <select ng-model="selectedTimeFilter"
+                            ng-options="filter.name for filter in timeFilters"
+                            ng-change="selectTimeFilter(selectedTimeFilter)">
+                    </select>
+                </div> -->
+
+<!--                 <div class="row filter">
+                    <div class="col-md-6" ng-repeat="filter in filters">
+                        <a href="#/" ng-class="{activeFilter: filter===selectedFilter}"
+                                    ng-click="selectFilter(filter)"
+                                    ng-bind="filter.name"></a>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="select-style" id="timeSelect">
+                            <select id="timeFilter" ng-model="selectedTimeFilter"
+                                    ng-options="filter.name for filter in timeFilters"
+                                    ng-change="selectTimeFilter(selectedTimeFilter)">
+                            </select>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div id="data" ng-repeat="proger in progers | filter: cityFilter | filter: langFilter | limitTo: itemsPerPage">
+                    <div class="wrap">
+                        <div class="clearfix">
+<!--                             <div class="right cross">
+                                <a href="#/">&#10005;</a>
+                            </div> -->
+                        </div>
+                        <div class="clearfix transactions">
+                            <div class="left">
+                                <div class="name" ng-bind="proger.name"></div>
+                                <div class="location" ng-bind="proger.location"></div>
+                            </div>
+                            <div class="right">
+                                <div class="descr">
+                                <a href="{{proger.github}}" target="_blank" ng-show="{{!!proger.github}}">
+                                    <span class="socicon-github"></span>
+                                </a>
+                                <a href="{{proger.stackoverflow}}" target="_blank" ng-show="{{!!proger.stackoverflow}}">
+                                    <span class="socicon-stackoverflow"></span>
+                                </a>
+                                <a href="{{proger.linkedin}}" target="_blank" ng-show="{{!!proger.linkedin}}">
+                                    <span class="socicon-linkedin"></span>
+                                </a>
+                                <a href="{{proger.moikrug}}" target="_blank" ng-show="{{!!proger.moikrug}}">
+                                    <span class="socicon-issuu"></span>
+                                </a>
+                                <a href="{{proger.google}}" target="_blank" ng-show="{{!!proger.google}}">
+                                    <span class="socicon-google"></span>
+                                </a>
+                                <a href="{{proger.site}}" target="_blank" ng-show="{{!!proger.site}}">
+                                    <span class="socicon-chrome"></span>
+                                </a>
+                                <a href="{{proger.tw}}" target="_blank" ng-show="{{!!proger.tw}}">
+                                    <span class="socicon-twitter"></span>
+                                </a>
+                                <a href="{{proger.fb}}" target="_blank" ng-show="{{!!proger.fb}}">
+                                    <span class="socicon-facebook"></span>
+                                </a>
+                                <a href="{{proger.vk}}" target="_blank" ng-show="{{!!proger.vk}}">
+                                    <span class="socicon-vkontakte"></span>
+                                </a>
+                                </div>
+                                <div class="email">{{proger.emails}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="clearfix" id="pagination">
+                    <div class="col-md-9">
+                        <button type="submit" class="btn" ng-disabled="firstPage()" ng-click="pageBack()">
+                            Назад
+                        </button>
+                    </div>
+                    <div class="col-md-10">
+                        {{currentPage + 1}} из {{ numberOfPages() }}
+                    </div>
+                    <div class="col-md-9">
+                        <button type="submit" class="btn" ng-disabled="lastPage()"
+                                ng-click="pageForward()">
+                            Вперед
+                        </button>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container clearfix">
+            <span class="strike">&copy; Все права защищены</span>. Работа выполнена в рамках курса «Интернет-предпринимательство» в мае 2017 года.
+        </div>
+    </footer>
+</body>
+</html>
